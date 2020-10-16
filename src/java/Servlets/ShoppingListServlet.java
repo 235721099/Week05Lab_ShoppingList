@@ -79,7 +79,7 @@ public class ShoppingListServlet extends HttpServlet {
                 getServletContext().getRequestDispatcher("/WEB-INF/register.jsp")
                     .forward(request, response);
             }
-            if(action.equals("add")){
+            if(action.equalsIgnoreCase("add")){
                 String item = request.getParameter("item");
                 if(!item.equals("")){
                     shoppingItems.add(item);
@@ -91,11 +91,18 @@ public class ShoppingListServlet extends HttpServlet {
                     getServletContext().getRequestDispatcher("/WEB-INF/shoppingList.jsp")
                         .forward(request, response);
                 }else{
+                    itemNumber = shoppingItems.size();
+
+                    request.setAttribute("shoppingItems", shoppingItems);
+                    request.setAttribute("itemNumber", itemNumber);
+
+                    getServletContext().getRequestDispatcher("/WEB-INF/shoppingList.jsp")
+                        .forward(request, response);
                     getServletContext().getRequestDispatcher("/WEB-INF/shoppingList.jsp")
                         .forward(request, response);
                 }
             }
-            if(action.equals("delete")){
+            if(action.equalsIgnoreCase("delete")){
                 String item = request.getParameter("shoppingItem");
                 shoppingItems.remove(item);
                 itemNumber = shoppingItems.size();

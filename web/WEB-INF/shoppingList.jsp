@@ -20,7 +20,7 @@
         <form action="" method="post">
             <h2>Add Item</h2>
             <input type="text" name="item">
-            <input type="submit" name="action" value="add">Add
+            <input type="submit" name="action" value="Add">
         </form>
         <form action="" method="post">
             <c:if test="${itemNumber gt 0}">
@@ -29,7 +29,7 @@
                     <li><input type="radio" name="shoppingItem" value=${shoppingItem}>${shoppingItem}</li>  
                 </c:forEach>
                </ul> 
-               <input type="submit" name="action" value="delete">
+               <input type="submit" name="action" value="Delete">
             </c:if>
         </form>
     </body>
